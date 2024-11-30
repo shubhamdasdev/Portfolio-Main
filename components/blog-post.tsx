@@ -13,13 +13,21 @@ interface BlogPost {
   readTime: string;
   image: string;
   category: string;
+  mediumLink?: string;
+  substackLink?: string;
 }
 
 interface BlogPostProps {
   post: BlogPost;
+  isMedium?: boolean;
+  isSubstackLink?: boolean;
 }
 
-export function BlogPost({ post }: BlogPostProps) {
+export function BlogPost({
+  post,
+  isMedium = false,
+  isSubstackLink = false,
+}: BlogPostProps) {
   return (
     <Card className="group relative overflow-hidden border-white/10 bg-black transition-all hover:border-white/20">
       <div className="aspect-[2/1] overflow-hidden">
@@ -51,8 +59,32 @@ export function BlogPost({ post }: BlogPostProps) {
         <h3 className="mb-2 text-xl font-semibold text-white">{post.title}</h3>
         <p className="mb-4 text-sm text-neutral-400">{post.excerpt}</p>
         <button className="group/btn flex items-center text-sm text-white">
-          Read More
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+          {(isMedium && post.mediumLink) ? (
+            <a
+              href={post.mediumLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              Read More
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+            </a>
+          ) : (isSubstackLink && post.substackLink) ? (
+            <a
+              href={post.substackLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              Read More
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+            </a>
+          ) : (
+            <>
+              Read More
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+            </>
+          )}
         </button>
       </div>
     </Card>

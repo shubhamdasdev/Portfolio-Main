@@ -26,7 +26,7 @@ export default function BlogPage() {
     },
     {
       id: 3,
-      title: 'Unveiled: ChatGPT’s Voice Mode & LLama Advancements',
+      title: 'Unveiled: ChatGPTs Voice Mode & LLama Advancements',
       excerpt: 'Your weekly pulse on AI, startups, and productivity hacks. Stay curious, innovate boldly, and grow with every issue.',
       date: '2024-10-02',
       readTime: '5 min read',
