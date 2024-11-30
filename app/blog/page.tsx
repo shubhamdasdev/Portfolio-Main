@@ -1,6 +1,5 @@
-import { BlogPost as BlogPostComponent } from '@/components/blog-post';
-import { BlogGrid as BlogGridComponent } from '@/components/blog-grid';
-import Image from 'next/image';
+import { BlogPost } from '@/components/blog-post';
+import { BlogGrid } from '@/components/blog-grid';
 
 export default function BlogPage() {
   const posts = [
@@ -44,68 +43,17 @@ export default function BlogPage() {
           Thoughts on product management, user experience design, and building
           digital products that make a difference.
         </p>
-        <BlogGridComponent>
+        <BlogGrid>
           {posts.map((post) => (
-            <BlogPostComponent
+            <BlogPost
               key={post.id}
               post={post}
               isMedium={!!post.mediumLink}
               isSubstackLink={!!post.substackLink}
             />
           ))}
-        </BlogGridComponent>
+        </BlogGrid>
       </div>
-    </div>
-  );
-}
-
-// BlogPost Component
-export function BlogPost({ post, isMedium = false, isSubstackLink = false }: { post: any; isMedium?: boolean; isSubstackLink?: boolean }) {
-  return (
-    <div className="rounded-lg bg-neutral-900 p-6">
-      <Image
-        src={post.image}
-        alt={post.title}
-        className="mb-4 w-full rounded-lg object-cover"
-        width={400}
-        height={250}
-      />
-      <h2 className="text-2xl font-bold text-white">{post.title}</h2>
-      <p className="mt-2 text-sm text-neutral-400">{post.excerpt}</p>
-      <div className="mt-4 text-sm">
-        {isMedium ? (
-          <a
-            href={post.mediumLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
-          >
-            Read More
-          </a>
-        ) : isSubstackLink ? (
-          <a
-            href={post.substackLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
-          >
-            Read More
-          </a>
-        ) : (
-          <p className="text-neutral-400">
-            {post.date} • {post.readTime}
-          </p>
-        )}
-      </div>
-    </div>
-  );
-}
-
-// BlogGrid Component
-export function BlogGrid({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {children}
     </div>
   );
 }
