@@ -1,34 +1,38 @@
-import { BlogPost } from '@/components/blog-post';
-import { BlogGrid } from '@/components/blog-grid';
+import { BlogPost as BlogPostComponent } from '@/components/blog-post';
+import { BlogGrid as BlogGridComponent } from '@/components/blog-grid';
+import Image from 'next/image';
 
 export default function BlogPage() {
   const posts = [
     {
       id: 1,
-      title: 'The Future of Product Management in AI-Driven World',
+      title: 'Is Product Management Dead? Embracing the AI Revolution',
       excerpt: 'Exploring how artificial intelligence is reshaping the role of product managers and the skills needed to succeed.',
       date: '2024-03-15',
       readTime: '5 min read',
-      image: 'https://images.unsplash.com/photo-1673845320626-d51a53afa626',
+      image: '/jj.png',
       category: 'Product Strategy',
+      mediumLink: 'https://medium.com/@shubdas223/is-product-management-dead-embracing-the-ai-revolution-5d086f40f270',
     },
     {
       id: 2,
-      title: 'Building Products That Scale: Lessons Learned',
-      excerpt: 'Key insights and strategies for creating products that can effectively scale with growing user demands.',
+      title: 'Is Knowledge Retrieval the Unsung Hero of AI?',
+      excerpt: 'Examining how advanced knowledge retrieval systems are revolutionizing AI applications across industries.',
       date: '2024-03-10',
       readTime: '7 min read',
-      image: 'https://images.unsplash.com/photo-1672239792044-5cd0f4e9e550',
-      category: 'Product Development',
+      image: '/DD.png',
+      category: 'AI & Data',
+      mediumLink: 'https://medium.com/@shubdas223/is-knowledge-retrieval-the-unsung-hero-of-ai-embracing-the-future-b0706b28bdf2',
     },
     {
       id: 3,
-      title: 'User-Centered Design: Beyond the Basics',
-      excerpt: 'Advanced techniques for incorporating user feedback and behavior into product design decisions.',
-      date: '2024-03-05',
-      readTime: '6 min read',
-      image: 'https://images.unsplash.com/photo-1671920090611-9a40303b52cb',
-      category: 'UX Design',
+      title: 'Unveiled: ChatGPT’s Voice Mode & LLama Advancements',
+      excerpt: 'Your weekly pulse on AI, startups, and productivity hacks. Stay curious, innovate boldly, and grow with every issue.',
+      date: '2024-10-02',
+      readTime: '5 min read',
+      image: '/SB.webp',
+      category: 'AI & Startups',
+      substackLink: 'https://unveiledd.substack.com/p/unveiled-chatgpts-voice-mode-llama',
     },
   ];
 
@@ -40,12 +44,68 @@ export default function BlogPage() {
           Thoughts on product management, user experience design, and building
           digital products that make a difference.
         </p>
-        <BlogGrid>
+        <BlogGridComponent>
           {posts.map((post) => (
-            <BlogPost key={post.id} post={post} />
+            <BlogPostComponent
+              key={post.id}
+              post={post}
+              isMedium={!!post.mediumLink}
+              isSubstackLink={!!post.substackLink}
+            />
           ))}
-        </BlogGrid>
+        </BlogGridComponent>
       </div>
+    </div>
+  );
+}
+
+// BlogPost Component
+export function BlogPost({ post, isMedium = false, isSubstackLink = false }: { post: any; isMedium?: boolean; isSubstackLink?: boolean }) {
+  return (
+    <div className="rounded-lg bg-neutral-900 p-6">
+      <Image
+        src={post.image}
+        alt={post.title}
+        className="mb-4 w-full rounded-lg object-cover"
+        width={400}
+        height={250}
+      />
+      <h2 className="text-2xl font-bold text-white">{post.title}</h2>
+      <p className="mt-2 text-sm text-neutral-400">{post.excerpt}</p>
+      <div className="mt-4 text-sm">
+        {isMedium ? (
+          <a
+            href={post.mediumLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            Read More
+          </a>
+        ) : isSubstackLink ? (
+          <a
+            href={post.substackLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            Read More
+          </a>
+        ) : (
+          <p className="text-neutral-400">
+            {post.date} • {post.readTime}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// BlogGrid Component
+export function BlogGrid({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {children}
     </div>
   );
 }

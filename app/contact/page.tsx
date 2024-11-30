@@ -72,7 +72,7 @@ export default function ContactPage() {
                     Location
                   </h3>
                   <p className="text-lg text-neutral-400">
-                    San Francisco, CA
+                    Chicago, IL
                   </p>
                 </div>
               </div>
@@ -88,10 +88,10 @@ export default function ContactPage() {
                     Phone
                   </h3>
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+13126475921"
                     className="text-lg text-neutral-400 hover:text-white"
                   >
-                    +1 (234) 567-890
+                    +1 (312) 647-5921
                   </a>
                 </div>
               </div>

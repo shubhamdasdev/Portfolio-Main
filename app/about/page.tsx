@@ -26,21 +26,36 @@ export default function AboutPage() {
       role: 'CEO/Co-Founder',
       company: 'Lumos, Chicago',
       description:
-        'Led the development of an AI-driven financial advisory platform, integrating LLMs for scalable financial tools and securing investments.',
+        `
+        Led the development of a prototype for an AI-driven financial advisory platform using Figma for design and Vercel AI SDK for implementation.
+        - Fine-tuned open-source large language models like LLama 3.1 for financial applications.
+        - Conducted research on FinGPT and retrieval-based models to enhance platform capabilities.
+        - Managed financial modeling, forecasting, and market research to support product development and attract investors.
+      `,
     },
     {
       year: '2023 - Present',
       role: 'Manager Intern',
       company: 'TrustVector, Chicago',
       description:
-        'Developed governance solutions for responsible AI, collaborating with engineers to optimize model performance and client alignment.',
+      `
+        Led customer discovery initiatives, identifying pain points through interviews and research.
+        - Defined product requirements and specifications for AI governance tools.
+        - Conducted competitive analysis and prepared detailed stakeholder presentations to position the product in the market.
+      `,
     },
     {
       year: '2019 - 2022',
       role: 'Business Analyst',
       company: 'Bank of New York Mellon, Pune, India',
       description:
-        'Automated billing processes, reducing unbilled amounts by over $10M, and improved billing accuracy by 30% with Power BI dashboards.',
+        `
+        Automated billing processes, reducing unbilled amounts by over $10M, and improved billing accuracy by 30%.
+        Created dashboards using Power BI, Excel, and SQL for enhanced invoice tracking across 150+ client accounts.
+        Led a team to develop SQL and Alteryx tools, resulting in a 15% reduction in outstanding balances.
+        Spearheaded a top 6 IdeaWorks Challenge business case out of 370 ideas globally.
+        Contributed to digitizing fee schedules, improving productivity by 10%.
+      `,
     },
   ];
 
@@ -63,7 +78,7 @@ export default function AboutPage() {
               </div>
             </div>
             <p className="text-lg leading-relaxed text-neutral-400">
-              I'm pursuing a Master’s in Information Technology Management at IIT Chicago, with an MBA in Finance Analytics and over 4 years of experience in product management, venture building, and AI-driven solutions. Passionate about leveraging technology to empower startups, I bring a blend of technical expertise and strategic vision to create products that meet both user needs and business goals.
+            With a Master’s in IT Management at IIT Chicago and an MBA in Finance Analytics, I fuse technology and business to turn bold ideas into impactful realities. Over four years, I’ve led AI-driven product strategies and built scalable startup solutions. Blending technical expertise with entrepreneurial vision, I craft user-centric products that deliver real value. My mission is to harness AI and machine learning to empower organizations in an ever-evolving digital landscape.
             </p>
             <Button asChild className="h-12 rounded-full bg-white px-6 text-black hover:bg-white/90">
               <a 
